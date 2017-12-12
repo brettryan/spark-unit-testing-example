@@ -15,6 +15,8 @@ libraryDependencies ++= Seq(
   "junit" % "junit" % "4.10" % Test,
   "org.scalatest" %% "scalatest" % "3.0.4" % Test,
   "org.apache.hadoop" % "hadoop-minicluster" % "2.5.0" % Test
+).map(
+  _.excludeAll(ExclusionRule(organization = "javax.servlet"))
 )
 
 resolvers += "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
